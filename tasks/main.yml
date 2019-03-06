@@ -1,0 +1,25 @@
+- name: download key
+  apt_key:
+    url: https://artifacts.elastic.co/GPG-KEY-elasticsearch
+    id: 46095ACC8548582C1A2699A9D27D666CD88E42B4
+    state: present
+  tags:
+    - filebeat
+
+- name: add repository
+  apt_repository:
+    repo: deb https://artifacts.elastic.co/packages/6.x/apt stable main
+    filename: elastic
+    update_cache: yes
+    state: present
+  tags:
+    - filebeat
+
+- name: install packages
+  with_items:
+    - filebeat
+  package:
+    name: '{{ item }}'
+    state: present
+  tags:
+    - filebeat
