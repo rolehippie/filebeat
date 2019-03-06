@@ -23,3 +23,13 @@
     state: present
   tags:
     - filebeat
+
+- name: start service
+  systemd:
+    name: filebeat
+    state: '{{ filebeat_service_state }}'
+    daemon_reload: yes
+    masked: no
+    enabled: '{{ filebeat_service_enabled }}'
+  tags:
+    - filebeat

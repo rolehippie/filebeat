@@ -1,0 +1,2 @@
+filebeat_service_state: stopped
+filebeat_service_enabled: False
