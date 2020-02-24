@@ -1,2 +1,9 @@
+# Standards: 0.1
+---
+# @var filebeat_service_state:description: State for the service definition
 filebeat_service_state: stopped
+
+# @var filebeat_service_enabled:description: Switch the service into enabled state
 filebeat_service_enabled: False
+
+...
