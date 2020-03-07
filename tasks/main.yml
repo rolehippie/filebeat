@@ -12,7 +12,7 @@
   apt_repository:
     repo: deb https://artifacts.elastic.co/packages/6.x/apt stable main
     filename: elastic
-    update_cache: yes
+    update_cache: True
     state: present
   tags:
     - filebeat
@@ -21,7 +21,7 @@
   loop:
     - filebeat
   package:
-    name: '{{ item }}'
+    name: "{{ item }}"
     state: present
   tags:
     - filebeat
@@ -29,10 +29,10 @@
 - name: Start filebeat service
   systemd:
     name: filebeat
-    state: '{{ filebeat_service_state }}'
-    daemon_reload: yes
-    masked: no
-    enabled: '{{ filebeat_service_enabled }}'
+    state: "{{ filebeat_service_state }}"
+    daemon_reload: True
+    masked: False
+    enabled: "{{ filebeat_service_enabled }}"
   tags:
     - filebeat
 
