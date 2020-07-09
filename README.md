@@ -7,7 +7,6 @@ Ansible role to configure filebeat
 ## Table of content
 
 * [Default Variables](#default-variables)
-  * [filebeat_configuration_enabled](#filebeat_configuration_enabled)
   * [filebeat_console_enabled](#filebeat_console_enabled)
   * [filebeat_default_inputs](#filebeat_default_inputs)
   * [filebeat_default_modules](#filebeat_default_modules)
@@ -25,7 +24,6 @@ Ansible role to configure filebeat
   * [filebeat_major_version](#filebeat_major_version)
   * [filebeat_name](#filebeat_name)
   * [filebeat_service_enabled](#filebeat_service_enabled)
-  * [filebeat_service_state](#filebeat_service_state)
   * [filebeat_tags](#filebeat_tags)
 * [Dependencies](#dependencies)
 * [License](#license)
@@ -34,16 +32,6 @@ Ansible role to configure filebeat
 ---
 
 ## Default Variables
-
-### filebeat_configuration_enabled
-
-Enable configuration of the service at all
-
-#### Default value
-
-```YAML
-filebeat_configuration_enabled: true
-```
 
 ### filebeat_console_enabled
 
@@ -232,22 +220,6 @@ filebeat_name: '{{ ansible_hostname }}'
 ### filebeat_service_enabled
 
 Enable the console output
-
-#### Default value
-
-```YAML
-filebeat_service_enabled: true
-```
-
-### filebeat_service_state
-
-State for the service definition
-
-#### Default value
-
-```YAML
-filebeat_service_state: started
-```
 
 ### filebeat_tags
 

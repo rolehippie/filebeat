@@ -3,15 +3,6 @@
 # @var filebeat_major_version:description: Major version to install, used for the APT repository
 filebeat_major_version: 7
 
-# @var filebeat_configuration_enabled:description: Enable configuration of the service at all
-filebeat_configuration_enabled: True
-
-# @var filebeat_service_state:description: State for the service definition
-filebeat_service_state: started
-
-# @var filebeat_service_enabled:description: Switch the service into enabled state
-filebeat_service_enabled: True
-
 # @var filebeat_name:description: Name of the shipper within the output
 filebeat_name: "{{ ansible_hostname }}"
 

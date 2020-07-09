@@ -26,42 +26,37 @@
   tags:
     - filebeat
 
-- name: Apply general configuration
-  when: filebeat_configuration_enabled
-  block:
-    - name: Drop reference config
-      file:
-        path: /etc/filebeat/filebeat.reference.yml
-        state: absent
-      tags:
-        - filebeat
+- name: Drop reference config
+  file:
+    path: /etc/filebeat/filebeat.reference.yml
+    state: absent
+  tags:
+    - filebeat
 
-    - name: Drop modules dir
-      file:
-        path: /etc/filebeat/modules.d
-        state: absent
-      tags:
-        - filebeat
+- name: Drop modules dir
+  file:
+    path: /etc/filebeat/modules.d
+    state: absent
+  tags:
+    - filebeat
 
-    - name: Write general config
-      notify:
-        - Restart filebeat
-      template:
-        src: config.j2
-        dest: /etc/filebeat/filebeat.yml
-        validate: filebeat test config -d -c %s
-      tags:
-        - filebeat
+- name: Write general config
+  notify:
+    - Restart filebeat
+  template:
+    src: config.j2
+    dest: /etc/filebeat/filebeat.yml
+    validate: filebeat test config -d -c %s
   tags:
     - filebeat
 
 - name: Start filebeat service
   systemd:
     name: filebeat
-    state: "{{ filebeat_service_state }}"
+    state: started
     daemon_reload: True
     masked: False
-    enabled: "{{ filebeat_service_enabled }}"
+    enabled: True
   tags:
     - filebeat
 
