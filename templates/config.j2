@@ -1,0 +1,27 @@
+name: {{ filebeat_name }}
+tags: {{ filebeat_tags | to_yaml | trim }}
+{% if (filebeat_default_modules + filebeat_group_modules + filebeat_host_modules) | length > 0 %}
+
+filebeat.modules:
+  {{ (filebeat_default_modules + filebeat_group_modules + filebeat_host_modules) | to_nice_yaml(indent=2) | indent(width=2, indentfirst=False) | trim }}
+{% endif %}
+{% if (filebeat_default_inputs + filebeat_group_inputs + filebeat_host_inputs) | length > 0 %}
+
+filebeat.inputs:
+  {{ (filebeat_default_inputs + filebeat_group_inputs + filebeat_host_inputs) | to_nice_yaml(indent=2) | indent(width=2, indentfirst=False) | trim }}
+{% endif %}
+{% if (filebeat_default_processors + filebeat_group_processors + filebeat_host_processors) | length > 0 %}
+
+processors:
+  {{ (filebeat_default_processors + filebeat_group_processors + filebeat_host_processors) | to_nice_yaml(indent=2) | indent(width=2, indentfirst=False) | trim }}
+{% endif %}
+
+output.logstash:
+  enabled: {{ filebeat_logstash_enabled | lower }}
+  hosts: {{ filebeat_logstash_hosts | to_yaml | trim }}
+
+output.console:
+  enabled: {{ filebeat_console_enabled | lower }}
+
+logging.level: {{ filebeat_logging_level }}
+logging.selectors: {{ filebeat_logging_selectors | to_yaml | trim }}

@@ -1,6 +1,7 @@
 # Standards: 0.1
 ---
 - name: Restart filebeat
+  when: filebeat_service_state == 'started' and filebeat_service_enabled
   systemd:
     name: filebeat
     state: restarted

@@ -1,9 +1,90 @@
 # Standards: 0.1
 ---
+# @var filebeat_major_version:description: Major version to install, used for the APT repository
+filebeat_major_version: 7
+
+# @var filebeat_configuration_enabled:description: Enable configuration of the service at all
+filebeat_configuration_enabled: True
+
 # @var filebeat_service_state:description: State for the service definition
-filebeat_service_state: stopped
+filebeat_service_state: started
 
 # @var filebeat_service_enabled:description: Switch the service into enabled state
-filebeat_service_enabled: False
+filebeat_service_enabled: True
+
+# @var filebeat_name:description: Name of the shipper within the output
+filebeat_name: "{{ ansible_hostname }}"
+
+# @var filebeat_tags:description: List of tags to assign for the shipper
+filebeat_tags: []
+
+# @var filebeat_default_modules:description: List of default modules, gets directly transformed to yaml
+filebeat_default_modules:
+  - module: system
+    syslog:
+      enabled: False
+    auth:
+      enabled: True
+
+# @var filebeat_group_modules:description: List of group modules, merged with filebeat_default_modules
+filebeat_group_modules: []
+
+# @var filebeat_host_modules:description: List of host modules, merged with filebeat_default_modules
+filebeat_host_modules: []
+
+# @var filebeat_default_inputs:description: List of default inputs, gets directly transformed to yaml
+# @var filebeat_default_inputs:example: >
+# filebeat_default_inputs:
+#   - type: log
+#     enabled: True
+#     paths:
+#       - /var/log/*.log
+# @end
+filebeat_default_inputs:
+  - type: log
+    enabled: True
+    paths:
+      - /var/log/kern.log
+    fields:
+      kern: True
+  - type: log
+    enabled: True
+    paths:
+      - /var/log/dpkg.log
+    fields:
+      dpkg: True
+
+# @var filebeat_group_inputs:description: List of group inputs, merged with filebeat_default_inputs
+filebeat_group_inputs: []
+
+# @var filebeat_host_inputs:description: List of host inputs, merged with filebeat_default_inputs
+filebeat_host_inputs: []
+
+# @var filebeat_default_processors:description: List of default processors, gets directly transformed to yaml
+filebeat_default_processors:
+  - add_host_metadata: ~
+  - add_cloud_metadata: ~
+  - add_docker_metadata: ~
+
+# @var filebeat_group_processors:description: List of group processors, merged with filebeat_default_processors
+filebeat_group_processors: []
+
+# @var filebeat_host_processors:description: List of host processors, merged with filebeat_default_processors
+filebeat_host_processors: []
+
+# @var filebeat_service_enabled:description: Enable the logstash output
+filebeat_logstash_enabled: True
+
+# @var filebeat_service_enabled:description: List of hosts for logstash output
+filebeat_logstash_hosts: []
+
+# @var filebeat_service_enabled:description: Enable the console output
+filebeat_console_enabled: False
+
+# @var filebeat_logging_level:description: Define logging level
+filebeat_logging_level: info
+
+# @var filebeat_logging_selectors:description: Define logging selectors, like beat, publish, service
+filebeat_logging_selectors: []
 
 ...
