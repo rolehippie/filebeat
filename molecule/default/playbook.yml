@@ -1,8 +1,5 @@
 ---
 - name: Converge
   hosts: all
-  vars:
-    filebeat_service_state: started
-    filebeat_service_enabled: True
   roles:
     - role: filebeat
