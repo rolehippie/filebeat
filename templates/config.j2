@@ -24,4 +24,5 @@ output.console:
   enabled: {{ filebeat_console_enabled | lower }}
 
 logging.level: {{ filebeat_logging_level }}
+logging.to_files: {{ filebeat_logging_to_files | lower }}
 logging.selectors: {{ filebeat_logging_selectors | to_yaml | trim }}

@@ -19,6 +19,7 @@ Ansible role to configure filebeat
   * [filebeat_host_processors](#filebeat_host_processors)
   * [filebeat_logging_level](#filebeat_logging_level)
   * [filebeat_logging_selectors](#filebeat_logging_selectors)
+  * [filebeat_logging_to_files](#filebeat_logging_to_files)
   * [filebeat_logstash_enabled](#filebeat_logstash_enabled)
   * [filebeat_logstash_hosts](#filebeat_logstash_hosts)
   * [filebeat_major_version](#filebeat_major_version)
@@ -168,7 +169,7 @@ Define logging level
 #### Default value
 
 ```YAML
-filebeat_logging_level: info
+filebeat_logging_level: warning
 ```
 
 ### filebeat_logging_selectors
@@ -179,6 +180,16 @@ Define logging selectors, like beat, publish, service
 
 ```YAML
 filebeat_logging_selectors: []
+```
+
+### filebeat_logging_to_files
+
+Log to files, keep journal clean
+
+#### Default value
+
+```YAML
+filebeat_logging_to_files: true
 ```
 
 ### filebeat_logstash_enabled
