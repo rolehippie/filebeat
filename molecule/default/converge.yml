@@ -2,6 +2,9 @@
 ---
 - name: Converge
   hosts: all
+  vars:
+    filebeat_logstash_enabled: False
+    filebeat_console_enabled: True
   roles:
     - role: filebeat
 
