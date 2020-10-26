@@ -15,13 +15,17 @@ filebeat.inputs:
 processors:
   {{ (filebeat_default_processors + filebeat_group_processors + filebeat_host_processors) | to_nice_yaml(indent=2) | indent(width=2, indentfirst=False) | trim }}
 {% endif %}
+{% if filebeat_logstash_enabled %}
 
 output.logstash:
   enabled: {{ filebeat_logstash_enabled | lower }}
   hosts: {{ filebeat_logstash_hosts | to_yaml | trim }}
+{% endif %}
+{% if filebeat_console_enabled %}
 
 output.console:
   enabled: {{ filebeat_console_enabled | lower }}
+{% endif %}
 
 logging.level: {{ filebeat_logging_level }}
 logging.to_files: {{ filebeat_logging_to_files | lower }}
