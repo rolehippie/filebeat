@@ -3,17 +3,17 @@ tags: {{ filebeat_tags | to_yaml | trim }}
 {% if (filebeat_default_modules + filebeat_group_modules + filebeat_host_modules) | length > 0 %}
 
 filebeat.modules:
-  {{ (filebeat_default_modules + filebeat_group_modules + filebeat_host_modules) | to_nice_yaml(indent=2) | indent(width=2, indentfirst=False) | trim }}
+  {{ (filebeat_default_modules + filebeat_group_modules + filebeat_host_modules) | to_nice_yaml(indent=2) | indent(width=2, first=False) | trim }}
 {% endif %}
 {% if (filebeat_default_inputs + filebeat_group_inputs + filebeat_host_inputs) | length > 0 %}
 
 filebeat.inputs:
-  {{ (filebeat_default_inputs + filebeat_group_inputs + filebeat_host_inputs) | to_nice_yaml(indent=2) | indent(width=2, indentfirst=False) | trim }}
+  {{ (filebeat_default_inputs + filebeat_group_inputs + filebeat_host_inputs) | to_nice_yaml(indent=2) | indent(width=2, first=False) | trim }}
 {% endif %}
 {% if (filebeat_default_processors + filebeat_group_processors + filebeat_host_processors) | length > 0 %}
 
 processors:
-  {{ (filebeat_default_processors + filebeat_group_processors + filebeat_host_processors) | to_nice_yaml(indent=2) | indent(width=2, indentfirst=False) | trim }}
+  {{ (filebeat_default_processors + filebeat_group_processors + filebeat_host_processors) | to_nice_yaml(indent=2) | indent(width=2, first=False) | trim }}
 {% endif %}
 {% if filebeat_logstash_enabled %}
 
