@@ -1,40 +1,41 @@
 # filebeat
 
-[![Source Code](https://img.shields.io/badge/github-source%20code-blue?logo=github&logoColor=white)](https://github.com/rolehippie/filebeat) [![Testing Build](https://github.com/rolehippie/filebeat/workflows/testing/badge.svg)](https://github.com/rolehippie/filebeat/actions?query=workflow%3Atesting) [![Readme Build](https://github.com/rolehippie/filebeat/workflows/readme/badge.svg)](https://github.com/rolehippie/filebeat/actions?query=workflow%3Areadme) [![Galaxy Build](https://github.com/rolehippie/filebeat/workflows/galaxy/badge.svg)](https://github.com/rolehippie/filebeat/actions?query=workflow%3Agalaxy) [![License: Apache-2.0](https://img.shields.io/github/license/rolehippie/filebeat)](https://github.com/rolehippie/filebeat/blob/master/LICENSE) 
+[![Source Code](https://img.shields.io/badge/github-source%20code-blue?logo=github&logoColor=white)](https://github.com/rolehippie/filebeat) [![Testing Build](https://github.com/rolehippie/filebeat/workflows/testing/badge.svg)](https://github.com/rolehippie/filebeat/actions?query=workflow%3Atesting) [![Readme Build](https://github.com/rolehippie/filebeat/workflows/readme/badge.svg)](https://github.com/rolehippie/filebeat/actions?query=workflow%3Areadme) [![Galaxy Build](https://github.com/rolehippie/filebeat/workflows/galaxy/badge.svg)](https://github.com/rolehippie/filebeat/actions?query=workflow%3Agalaxy) [![License: Apache-2.0](https://img.shields.io/github/license/rolehippie/filebeat)](https://github.com/rolehippie/filebeat/blob/master/LICENSE)
 
-Ansible role to install and configure filebeat. 
+Ansible role to install and configure filebeat.
 
-## Sponsor 
+## Sponsor
 
-[![Proact Deutschland GmbH](https://proact.eu/wp-content/uploads/2020/03/proact-logo.png)](https://proact.eu) 
+[![Proact Deutschland GmbH](https://proact.eu/wp-content/uploads/2020/03/proact-logo.png)](https://proact.eu)
 
 Building and improving this Ansible role have been sponsored by my employer **Proact Deutschland GmbH**.
 
 ## Table of content
 
-* [Default Variables](#default-variables)
-  * [filebeat_console_enabled](#filebeat_console_enabled)
-  * [filebeat_default_inputs](#filebeat_default_inputs)
-  * [filebeat_default_modules](#filebeat_default_modules)
-  * [filebeat_default_processors](#filebeat_default_processors)
-  * [filebeat_group_inputs](#filebeat_group_inputs)
-  * [filebeat_group_modules](#filebeat_group_modules)
-  * [filebeat_group_processors](#filebeat_group_processors)
-  * [filebeat_host_inputs](#filebeat_host_inputs)
-  * [filebeat_host_modules](#filebeat_host_modules)
-  * [filebeat_host_processors](#filebeat_host_processors)
-  * [filebeat_logging_level](#filebeat_logging_level)
-  * [filebeat_logging_selectors](#filebeat_logging_selectors)
-  * [filebeat_logging_to_files](#filebeat_logging_to_files)
-  * [filebeat_logstash_enabled](#filebeat_logstash_enabled)
-  * [filebeat_logstash_hosts](#filebeat_logstash_hosts)
-  * [filebeat_major_version](#filebeat_major_version)
-  * [filebeat_name](#filebeat_name)
-  * [filebeat_service_enabled](#filebeat_service_enabled)
-  * [filebeat_tags](#filebeat_tags)
-* [Dependencies](#dependencies)
-* [License](#license)
-* [Author](#author)
+- [Default Variables](#default-variables)
+  - [filebeat_console_enabled](#filebeat_console_enabled)
+  - [filebeat_default_inputs](#filebeat_default_inputs)
+  - [filebeat_default_modules](#filebeat_default_modules)
+  - [filebeat_default_processors](#filebeat_default_processors)
+  - [filebeat_group_inputs](#filebeat_group_inputs)
+  - [filebeat_group_modules](#filebeat_group_modules)
+  - [filebeat_group_processors](#filebeat_group_processors)
+  - [filebeat_host_inputs](#filebeat_host_inputs)
+  - [filebeat_host_modules](#filebeat_host_modules)
+  - [filebeat_host_processors](#filebeat_host_processors)
+  - [filebeat_logging_level](#filebeat_logging_level)
+  - [filebeat_logging_selectors](#filebeat_logging_selectors)
+  - [filebeat_logging_to_files](#filebeat_logging_to_files)
+  - [filebeat_logstash_enabled](#filebeat_logstash_enabled)
+  - [filebeat_logstash_hosts](#filebeat_logstash_hosts)
+  - [filebeat_major_version](#filebeat_major_version)
+  - [filebeat_name](#filebeat_name)
+  - [filebeat_service_enabled](#filebeat_service_enabled)
+  - [filebeat_tags](#filebeat_tags)
+- [Discovered Tags](#discovered-tags)
+- [Dependencies](#dependencies)
+- [License](#license)
+- [Author](#author)
 
 ---
 
@@ -248,9 +249,14 @@ List of tags to assign for the shipper
 filebeat_tags: []
 ```
 
+## Discovered Tags
+
+**_filebeat_**
+
+
 ## Dependencies
 
-* None
+- None
 
 ## License
 
