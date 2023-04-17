@@ -27,6 +27,7 @@ Building and improving this Ansible role have been sponsored by my current and p
   - [filebeat_host_inputs](#filebeat_host_inputs)
   - [filebeat_host_modules](#filebeat_host_modules)
   - [filebeat_host_processors](#filebeat_host_processors)
+  - [filebeat_keyring](#filebeat_keyring)
   - [filebeat_logging_level](#filebeat_logging_level)
   - [filebeat_logging_selectors](#filebeat_logging_selectors)
   - [filebeat_logging_to_files](#filebeat_logging_to_files)
@@ -176,6 +177,16 @@ List of host processors, merged with filebeat_default_processors
 
 ```YAML
 filebeat_host_processors: []
+```
+
+### filebeat_keyring
+
+Path for the repository keyring
+
+#### Default value
+
+```YAML
+filebeat_keyring: /usr/share/keyrings/elastic-archive-keyring.gpg
 ```
 
 ### filebeat_logging_level
