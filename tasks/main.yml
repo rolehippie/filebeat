@@ -1,14 +1,13 @@
-# Standards: 1.2
 ---
 - name: Remove legacy key
-  apt_key:
+  ansible.builtin.apt_key:
     id: 46095ACC8548582C1A2699A9D27D666CD88E42B4
     state: absent
   tags:
     - filebeat
 
 - name: Remove legacy repo
-  apt_repository:
+  ansible.builtin.apt_repository:
     repo: "deb https://artifacts.elastic.co/packages/{{ filebeat_major_version }}.x/apt stable main"
     filename: elastic
     update_cache: False
@@ -17,14 +16,14 @@
     - filebeat
 
 - name: Download repo key
-  shell:
+  ansible.builtin.shell:
     cmd: "curl -sSL 'https://artifacts.elastic.co/GPG-KEY-elasticsearch' | gpg --dearmor --output {{ filebeat_keyring }}"
     creates: "{{ filebeat_keyring }}"
   tags:
     - filebeat
 
 - name: Add apt repository
-  apt_repository:
+  ansible.builtin.apt_repository:
     repo: "deb [signed-by={{ filebeat_keyring }}] https://artifacts.elastic.co/packages/{{ filebeat_major_version }}.x/apt stable main"
     filename: elastic
     update_cache: True
@@ -35,21 +34,21 @@
 - name: Install required packages
   loop:
     - filebeat
-  package:
+  ansible.builtin.package:
     name: "{{ item }}"
     state: present
   tags:
     - filebeat
 
 - name: Drop reference config
-  file:
+  ansible.builtin.file:
     path: /etc/filebeat/filebeat.reference.yml
     state: absent
   tags:
     - filebeat
 
 - name: Drop modules dir
-  file:
+  ansible.builtin.file:
     path: /etc/filebeat/modules.d
     state: absent
   tags:
@@ -58,7 +57,7 @@
 - name: Write general config
   notify:
     - Restart filebeat
-  template:
+  ansible.builtin.template:
     src: config.j2
     dest: /etc/filebeat/filebeat.yml
     validate: filebeat test config -d -c %s
@@ -69,7 +68,7 @@
     - filebeat
 
 - name: Start filebeat service
-  systemd:
+  ansible.builtin.systemd:
     name: filebeat
     state: started
     daemon_reload: True
