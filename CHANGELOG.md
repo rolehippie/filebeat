@@ -1,5 +1,13 @@
 # Changelog
 
+## [2.0.0](https://github.com/rolehippie/filebeat/compare/v1.1.0...v2.0.0) (2024-02-12)
+
+
+### Features
+
+* drop support for ubuntu 18.04 ([95b3c27](https://github.com/rolehippie/filebeat/commit/95b3c27ce66f6f27bd46976ce3789f3446c28e3e))
+* used full qualified collection names ([f60e904](https://github.com/rolehippie/filebeat/commit/f60e904cc2759af554c8c76aa9b5a3bb187d88eb))
+
 ## [1.1.0](https://github.com/rolehippie/filebeat/compare/v1.0.0...v1.1.0) (2023-04-17)
 
 
