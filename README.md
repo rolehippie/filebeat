@@ -1,4 +1,4 @@
-# workspace
+# filebeat
 
 [![Source Code](https://img.shields.io/badge/github-source%20code-blue?logo=github&logoColor=white)](https://github.com/rolehippie/filebeat)
 [![General Workflow](https://github.com/rolehippie/filebeat/actions/workflows/general.yml/badge.svg)](https://github.com/rolehippie/filebeat/actions/workflows/general.yml)
@@ -37,6 +37,7 @@ Building and improving this Ansible role have been sponsored by my current and p
   - [filebeat_name](#filebeat_name)
   - [filebeat_service_enabled](#filebeat_service_enabled)
   - [filebeat_tags](#filebeat_tags)
+  - [filebeat_test_config_command](#filebeat_test_config_command)
 - [Discovered Tags](#discovered-tags)
 - [Dependencies](#dependencies)
 - [License](#license)
@@ -85,7 +86,7 @@ filebeat_default_inputs:
 ```YAML
 filebeat_default_inputs:
   - type: log
-    enabled: True
+    enabled: true
     paths:
       - /var/log/*.log
 ```
@@ -266,6 +267,16 @@ List of tags to assign for the shipper
 
 ```YAML
 filebeat_tags: []
+```
+
+### filebeat_test_config_command
+
+Command to test the configuration
+
+#### Default value
+
+```YAML
+filebeat_test_config_command: filebeat test config -d -c %s
 ```
 
 ## Discovered Tags

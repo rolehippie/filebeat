@@ -2,8 +2,8 @@
 - name: Converge
   hosts: all
   vars:
-    filebeat_logstash_enabled: False
-    filebeat_console_enabled: True
+    filebeat_logstash_enabled: false
+    filebeat_console_enabled: true
   roles:
     - role: rolehippie.filebeat
 

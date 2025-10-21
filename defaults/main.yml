@@ -12,9 +12,9 @@ filebeat_tags: []
 filebeat_default_modules:
   - module: system
     syslog:
-      enabled: False
+      enabled: false
     auth:
-      enabled: True
+      enabled: true
 
 # @var filebeat_group_modules:description: List of group modules, merged with filebeat_default_modules
 filebeat_group_modules: []
@@ -26,23 +26,23 @@ filebeat_host_modules: []
 # @var filebeat_default_inputs:example: >
 # filebeat_default_inputs:
 #   - type: log
-#     enabled: True
+#     enabled: true
 #     paths:
 #       - /var/log/*.log
 # @end
 filebeat_default_inputs:
   - type: log
-    enabled: True
+    enabled: true
     paths:
       - /var/log/kern.log
     fields:
-      kern: True
+      kern: true
   - type: log
-    enabled: True
+    enabled: true
     paths:
       - /var/log/dpkg.log
     fields:
-      dpkg: True
+      dpkg: true
 
 # @var filebeat_group_inputs:description: List of group inputs, merged with filebeat_default_inputs
 filebeat_group_inputs: []
@@ -63,22 +63,25 @@ filebeat_group_processors: []
 filebeat_host_processors: []
 
 # @var filebeat_service_enabled:description: Enable the logstash output
-filebeat_logstash_enabled: True
+filebeat_logstash_enabled: true
 
 # @var filebeat_service_enabled:description: List of hosts for logstash output
 filebeat_logstash_hosts: []
 
 # @var filebeat_service_enabled:description: Enable the console output
-filebeat_console_enabled: False
+filebeat_console_enabled: false
 
 # @var filebeat_logging_level:description: Define logging level
 filebeat_logging_level: warning
 
 # @var filebeat_logging_to_files:description: Log to files, keep journal clean
-filebeat_logging_to_files: True
+filebeat_logging_to_files: true
 
 # @var filebeat_logging_selectors:description: Define logging selectors, like beat, publish, service
 filebeat_logging_selectors: []
+
+# @var filebeat_test_config_command:description: Command to test the configuration
+filebeat_test_config_command: filebeat test config -d -c %s
 
 # @var filebeat_keyring:description: Path for the repository keyring
 filebeat_keyring: /usr/share/keyrings/elastic-archive-keyring.gpg
