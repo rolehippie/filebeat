@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.1.0](https://github.com/rolehippie/filebeat/compare/v2.0.0...v2.1.0) (2025-10-21)
+
+
+### Features
+
+* apply new repo structure and update linting ([06a5a6f](https://github.com/rolehippie/filebeat/commit/06a5a6f9bad665453eb0736cb0684abf6903575e))
+
 ## [2.0.0](https://github.com/rolehippie/filebeat/compare/v1.1.0...v2.0.0) (2024-02-12)
 
 
