@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.3.0](https://github.com/rolehippie/filebeat/compare/v2.2.0...v2.3.0) (2026-08-10)
+
+### Dependencies
+
+* **minor:** update dependency pipx:ansible-doctor to v8.4.0 ([#56](https://github.com/rolehippie/filebeat/issues/56)) ([1d55c72](https://github.com/rolehippie/filebeat/commit/1d55c723fe3d141255c13ca6834f4c0def1e72ea))
+* **patch:** update dependency python to v3.14.7 ([#54](https://github.com/rolehippie/filebeat/issues/54)) ([f8964c0](https://github.com/rolehippie/filebeat/commit/f8964c06dddf4bbad141800db597fa870b49bf7d))
+
 ## [2.2.0](https://github.com/rolehippie/filebeat/compare/v2.1.0...v2.2.0) (2026-07-27)
 
 ## [2.1.0](https://github.com/rolehippie/filebeat/compare/v2.0.0...v2.1.0) (2025-10-21)
