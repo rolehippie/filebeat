@@ -38,7 +38,7 @@
   register: filebeat_key_convert
   changed_when: filebeat_key_convert.rc == 0
   ansible.builtin.command:
-    cmd: "gpg --dearmor -o {{ filebeat_keyring }} {{ filebeat_keyring }}.asc"
+    cmd: "gpg --batch --yes --dearmor -o {{ filebeat_keyring }} {{ filebeat_keyring }}.asc"
   tags:
     - filebeat
 

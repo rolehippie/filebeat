@@ -3,7 +3,7 @@
 filebeat_major_version: 7
 
 # @var filebeat_name:description: Name of the shipper within the output
-filebeat_name: "{{ ansible_hostname }}"
+filebeat_name: "{{ ansible_facts['hostname'] }}"
 
 # @var filebeat_tags:description: List of tags to assign for the shipper
 filebeat_tags: []
