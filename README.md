@@ -252,7 +252,7 @@ Name of the shipper within the output
 #### Default value
 
 ```YAML
-filebeat_name: '{{ ansible_facts['hostname'] }}'
+filebeat_name: "{{ ansible_facts['hostname'] }}"
 ```
 
 ### filebeat_service_enabled
